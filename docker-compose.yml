@@ -1,0 +1,16 @@
+version: "3"
+services:
+  wwww:
+    build: ./php
+    ports:
+      - "81:80"
+    volumes:
+      - "./app:/var/www/html"
+      - "./logs/apache2:/var/log/apache2"
+      - "./apache/default.conf:/etc/apache2/sites-available/000-default.conf"
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
