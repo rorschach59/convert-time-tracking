@@ -9,14 +9,17 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DailyReportMail extends Mailable
+class ReportMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public array $tasks)
+    public function __construct(
+        public array $tasks,
+        public string $mailTitle
+    )
     {
     }
 
@@ -36,7 +39,7 @@ class DailyReportMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.daily-report'
+            view: 'mail.report'
         );
     }
 

@@ -12,7 +12,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $hour = '17:00';
+        $schedule->command('app:report daily')
+            ->dailyAt($hour)
+            ->appendOutputTo('./storage/logs/daily.log');
+
+        $schedule->command('app:report weekly')
+            ->fridays()
+            ->at($hour)
+            ->appendOutputTo('./storage/logs/weekly.log');
     }
 
     /**

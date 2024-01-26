@@ -11,7 +11,7 @@
     }
 </style>
 
-<h1>Temps à tracker du {{ \Carbon\Carbon::now()->format('d/m/Y') }}</h1>
+<h1>{{ $mailTitle }}</h1>
 
 <table>
     <thead>
