@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $hour = '17:00';
+        // Problème d'heure sur le serveur
+        $hour = '16:00';
         $schedule->command('app:report daily')
             ->dailyAt($hour)
             ->appendOutputTo('./storage/logs/daily.log');
