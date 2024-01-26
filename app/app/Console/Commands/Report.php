@@ -50,7 +50,7 @@ class Report extends Command implements PromptsForMissingInput
 
         $tasks = $this->reportService->getTasks($from, $to);
 
-        Mail::to('contact@remipouly.fr')->send(new ReportMail(
+        Mail::to('remi.p@hiflow.com')->send(new ReportMail(
             $tasks, $mailTitle
         ));
     }
